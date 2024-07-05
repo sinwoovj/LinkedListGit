@@ -3,7 +3,7 @@
 #include <iostream> //std::iostream // std::ostream
 //DO NOT MODIFY INCLUDES
 
-class SingleNode;
+struct SingleNode;
 
 class SingleLinkList
 {
@@ -14,7 +14,6 @@ class SingleLinkList
 	int size;
 
 public:
-
 	///////////////////////
 	//Constructors
 	///////////////////////

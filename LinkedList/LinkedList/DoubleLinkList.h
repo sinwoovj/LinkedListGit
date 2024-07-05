@@ -5,9 +5,7 @@
 #include <iostream> //std::iostream // std::ostream
 //DO NOT MODIFY INCLUDES
 
-class DoubleNode;
-
-
+struct DoubleNode;
 
 class DoubleLinkList
 {

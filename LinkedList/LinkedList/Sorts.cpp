@@ -1,22 +1,63 @@
 #include "Sorts.h"
 #include "Nodes.h"
+#include "SingleLinkedList.h"
+#include <stdbool.h>
 
 void Sort::SortLowerFirst(SingleLinkList* list)
 {
-	SingleNode* min = nullptr;
-	/*
-		while을 돌려
-		헤드를 min으로 잡고
-		min보다 작은 노드를 끝까지 돌려서 바꿔
-		그 min 노드를 헤드로 두고 템프는 헤드의 pNext 같은 거 바꿔 그걸 size만큼 반복
-	*/
-	for (int i = 0; i < )
+	SingleNode* min;
+	SingleNode* tmp;
+	int num = 0;
+	for (int i = 0; i < list->size; i++)
+	{
+		min = list->mHead;
+		tmp = list->mHead;
+		for (int k = 0; k < i; k++)
+		{
+			min = list->mHead->pNext;
+			tmp = list->mHead->pNext;
+		}
+		for (int j = 0; j < list->size; j++)
+		{
+			if (min->mData < tmp->mData)
+			{
+				min = tmp;
+				num = j;
+			}
+			tmp = tmp->pNext;
+		}
+		list->DeleteIndex(num); // delete tmp;
+		list->AddFront(min);
+	}
 }
 
 void Sort::SortHigherFirst(SingleLinkList* list)
 {
-	SingleNode max;
-
+	SingleNode* max;
+	SingleNode* tmp;
+	int num = 0;
+	for (int i = 0; i < list->size; i++)
+	{
+		max = list->mHead;
+		tmp = list->mHead;
+		num = 0;
+		for (int k = 0; k < i; k++)
+		{
+			max = list->mHead->pNext;
+			tmp = list->mHead->pNext;
+		}
+		for (int j = 0; j < list->size; j++)
+		{
+			if (max->mData > tmp->mData)
+			{
+				max = tmp;
+				num = j;
+			}
+			tmp = tmp->pNext;
+		}
+		list->DeleteIndex(num); // delete tmp;
+		list->AddFront(max);
+	}
 }
 
 void Sort::SortOddFirsts(SingleLinkList* list)
